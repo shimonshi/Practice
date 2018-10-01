@@ -1,0 +1,34 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class praktika4 extends JFrame {
+    JPanel[] jp = new JPanel[5];
+    JButton but1 =  new JButton("AC_Millan");
+    JButton but2 =  new JButton("Real_Madrid");
+    JLabel lb1 =  new JLabel("Score");
+    JLabel lb2 =  new JLabel("Result");
+    JLabel lb3 =  new JLabel("Winner");
+    public praktika4(){
+        super("Football Match");
+        //setLayout(new GridLayout(1,1));
+        setSize(800,800);
+        but2.setSize(50,50);
+        but1.setSize(50,50);
+        but1.setLocation(0,200);
+        but2.setLocation(200,200);
+        setLayout(new BorderLayout());
+       // jp[1].add(but1,BorderLayout.EAST);
+       // jp[1].add(but2,BorderLayout.NORTH);
+       // add(but1);
+       // add(but2);
+        add(lb1,BorderLayout.SOUTH);
+        add(lb2,BorderLayout.EAST);
+        add(lb3,BorderLayout.NORTH);
+
+    }
+    public static void main(String[]args)
+    {
+        new praktika4().setVisible(true);
+    }
+}
