@@ -1,33 +1,84 @@
-import javax.swing.*;
 import java.awt.*;
+import java.lang.*;
 import java.awt.event.*;
+import javax.swing.*;
+public class praktika4 extends JFrame{
+    int count1 = 0, count2 = 0;
+    JButton button1 = new JButton("AC Milan ");
+    JButton button2 = new JButton("Real Madrid");
+    JLabel lbl = new JLabel("Result: 0 X 0");
+    JLabel vs = new JLabel("VS");
+    JLabel lb2 = new JLabel("Last Scorer: N/A");
+    JLabel lb3 = new JLabel("Winner: Draw");
+    JPanel[] pnl = new JPanel[4];
 
-public class praktika4 extends JFrame {
-    JPanel[] jp = new JPanel[5];
-    JButton but1 =  new JButton("AC_Millan");
-    JButton but2 =  new JButton("Real_Madrid");
-    JLabel lb1 =  new JLabel("Score");
-    JLabel lb2 =  new JLabel("Result");
-    JLabel lb3 =  new JLabel("Winner");
-    public praktika4(){
-        super("Football Match");
-        //setLayout(new GridLayout(1,1));
-        setSize(800,800);
-        but2.setSize(50,50);
-        but1.setSize(50,50);
-        but1.setLocation(0,200);
-        but2.setLocation(200,200);
-        setLayout(new BorderLayout());
-       // jp[1].add(but1,BorderLayout.EAST);
-       // jp[1].add(but2,BorderLayout.NORTH);
-       // add(but1);
-       // add(but2);
-        add(lb1,BorderLayout.SOUTH);
-        add(lb2,BorderLayout.EAST);
-        add(lb3,BorderLayout.NORTH);
+    praktika4(){
+        super("Футбол");
+        setLayout(new GridLayout(4,0));
+        setSize(1488,1488);
+
+        pnl[0] = new JPanel();
+        pnl[1] = new JPanel();
+        pnl[2] = new JPanel();
+        pnl[3] = new JPanel();
+        add(pnl[0]);
+        pnl[0].setLayout(new FlowLayout());
+        add(pnl[1]);
+        pnl[1].setLayout(new FlowLayout());
+        add(pnl[2]);
+        pnl[2].setLayout(new FlowLayout());
+        add(pnl[3]);
+        pnl[3].setLayout(new FlowLayout());
+
+        pnl[0].add(button1);
+        pnl[0].add(vs);
+        pnl[0].add(button2);
+        pnl[1].add(lbl,BorderLayout.CENTER);
+        pnl[2].add(lb2,BorderLayout.CENTER);
+        pnl[3].add(lb3,BorderLayout.CENTER);
+
+        button1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                count1++;
+                lbl.setText("Result: " + count1 + " X " + count2 );
+                lb2.setText("Last Scorer: " + button1.getText());
+                if (count1 > count2) {
+                    lb3.setText("Winner: " + button1.getText());
+                }
+                if (count2 > count1)
+                {
+                    lb3. setText("Winner: " + button1.getText());
+                }
+                else if(count1 == count2)
+                {
+                    lb3. setText("Winner: Draw");
+                }
+            }
+        });
+
+        button2.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                count2++;
+                lbl.setText("Result: " + count1 + " X " + count2 );
+                lb2.setText("Last Scorer: " + button2.getText());
+                if (count1 > count2) {
+                    lb3.setText("Winner: " + button2.getText());
+                }
+                if (count2 > count1)
+                {
+                    lb3. setText("Winner: " + button2.getText());
+                }
+                else if(count1 == count2)
+                {
+                    lb3. setText("Winner: Draw");
+                }
+            }
+        });
 
     }
-    public static void main(String[]args)
+    public static void main(String[] args)
     {
         new praktika4().setVisible(true);
     }
